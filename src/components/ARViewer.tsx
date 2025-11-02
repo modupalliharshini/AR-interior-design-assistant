@@ -12,12 +12,13 @@ interface ARViewerProps {
 
 export const ARViewer: React.FC<ARViewerProps> = ({ isOpen, onClose, product }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const sceneRef = useRef<THREE.Scene>();
-  const rendererRef = useRef<THREE.WebGLRenderer>();
-  const cameraRef = useRef<THREE.PerspectiveCamera>();
-  const animationIdRef = useRef<number>();
-  const modelLoadedRef = useRef<boolean>(false); // ✅ prevents multiple placements
+const canvasRef = useRef<HTMLCanvasElement>(null);
+const sceneRef = useRef<THREE.Scene | null>(null);
+const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+const animationIdRef = useRef<number | null>(null);
+const modelLoadedRef = useRef<boolean>(false);
+
 
   const [isScanning, setIsScanning] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
